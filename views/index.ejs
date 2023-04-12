@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title>Shorten URLs</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to URL Shortener App</h1>
+      <p>Enter a URL that you want to shorten:</p>
+      <form method="POST" action="/create">
+        <input type="text" name="url" />
+        <button type="submit">Create URL</button>
+      </form>
+      <br />
+      <p>Or search for a URL that you have shortened:</p>
+      <form method="GET" action="/go">
+        <input type="text" name="shortUrl" />
+        <button type="submit">Search for URL</button>
+      </form>
+      <% if (shortUrl) { %>
+      <p>Shortened URL: <a href="<%= shortUrl %>"><%= shortUrl %></a></p>
+      <% } %> <% if (longUrl) { %>
+      <p>Long URL: <%= longUrl %></p>
+      <% } %>
+    </div>
+  </body>
+</html>
