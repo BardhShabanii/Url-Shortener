@@ -17,14 +17,14 @@
       </form>
       <br />
       <p>Or search for a URL that you have shortened:</p>
-      <form method="GET" action="/go">
-        <input type="text" name="shortUrl" />
+      <form method="GET" action="/short">
+        <input type="text" name="shortUrl" /> 
         <button type="submit">Search for URL</button>
       </form>
       <% if (shortUrl) { %>
       <p>Shortened URL: <a href="<%= shortUrl %>"><%= shortUrl %></a></p>
       <% } %> <% if (longUrl) { %>
-      <p>Long URL: <%= longUrl %></p>
+      <p>Long URL: <a href="https://<%= longUrl%>"><%= longUrl%></p>
       <% } %>
     </div>
   </body>

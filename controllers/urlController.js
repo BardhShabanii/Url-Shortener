@@ -25,12 +25,13 @@ module.exports = {
 
   getShortUrl: async (req, res) => {
     try {
-      const shortUrl = req.params.shortUrl;
-      const longUrl = await Url.findOne({ shortUrl: shortUrl });
-      if (longUrl) {
-        res.redirect(longUrl.url);
+      const shortUrl = req.query.shortUrl;
+      const findLong = await Url.findOne({ shortUrl: shortUrl });
+      if (findLong) {
+        const longUrl = findLong.url;
+        res.render("index", { shortUrl: null, longUrl: longUrl });
       } else {
-        res.render("index", { longUrl: null, shortUrl: null });
+        res.render("index", { longUrl: "No url found", shortUrl: null });
       }
     } catch (error) {
       console.log(error);

@@ -3,7 +3,6 @@ const router = express.Router();
 const urlController = require("../controllers/urlController");
 
 router.get("/", urlController.getHome);
-router.post("/create", urlController.createUrl);
 router.get("/:shortUrl", urlController.getShortUrl);
-
+router.post("/create", urlController.createUrl);
 module.exports = router;
